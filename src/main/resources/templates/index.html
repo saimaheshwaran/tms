@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{generic/header :: tag ('Home Page')}"></head>
+<body class="container">
+
+<div class="row">
+    <div class="col-2">
+        <div th:replace="~{generic/navigation :: tag}"></div>
+    </div>
+</div>
+
+<div th:replace="~{generic/script :: tag}"></div>
+</body>
+</html>
