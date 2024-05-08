@@ -32,7 +32,7 @@ public class DefectService {
             temp.get().setAssignedTo(defect.getAssignedTo());
             temp.get().setStatus(defect.getStatus());
             temp.get().setUpdatedAt(Date.from(Instant.now()));
-            return defectRepository.save(defect);
+            return defectRepository.save(temp.get());
         } else
             return null;
     }
