@@ -3,6 +3,7 @@ package com.tools.tms.entities;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
 
 import java.util.Date;
 import java.util.Objects;
@@ -49,24 +50,23 @@ public class Defect {
     @Column(name = "bug_assignedTo", nullable = false)
     private String assignedTo;
 
-    @JsonProperty("bg_created")
-    @Column(name = "bug_created")
-    private Date createdAt;
+    @JsonProperty("bg_createdOn")
+    @Column(name = "bug_createdOn")
+    private Date createdOn;
 
-    @JsonProperty("bg_updated")
-    @Column(name = "bug_updated")
-    private Date updatedAt;
+    @JsonProperty("bg_updatedOn")
+    @Column(name = "bug_updatedOn")
+    private Date updatedOn;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Defect defect)) return false;
-        return Objects.equals(id, defect.id) && Objects.equals(summary, defect.summary) && Objects.equals(description, defect.description) && Objects.equals(priority, defect.priority) && Objects.equals(severity, defect.severity) && Objects.equals(status, defect.status) && Objects.equals(detectedBy, defect.detectedBy) && Objects.equals(assignedTo, defect.assignedTo);
+        return Objects.equals(getId(), defect.getId()) && Objects.equals(getSummary(), defect.getSummary()) && Objects.equals(getDescription(), defect.getDescription()) && Objects.equals(getPriority(), defect.getPriority()) && Objects.equals(getSeverity(), defect.getSeverity()) && Objects.equals(getStatus(), defect.getStatus()) && Objects.equals(getDetectedBy(), defect.getDetectedBy()) && Objects.equals(getAssignedTo(), defect.getAssignedTo()) && Objects.equals(getCreatedOn(), defect.getCreatedOn()) && Objects.equals(getUpdatedOn(), defect.getUpdatedOn());
     }
 
     @Override
     public int hashCode() {
-        return getClass().hashCode();
+        return Objects.hash(getId(), getSummary(), getDescription(), getPriority(), getSeverity(), getStatus(), getDetectedBy(), getAssignedTo(), getCreatedOn(), getUpdatedOn());
     }
-
 }

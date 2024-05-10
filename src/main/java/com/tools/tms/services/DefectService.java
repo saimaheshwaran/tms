@@ -17,7 +17,7 @@ public class DefectService {
     DefectRepository defectRepository;
 
     public Defect add(Defect defect) {
-        defect.setCreatedAt(Date.from(Instant.now()));
+        defect.setCreatedOn(Date.from(Instant.now()));
         return defectRepository.save(defect);
     }
 
@@ -31,7 +31,7 @@ public class DefectService {
             temp.get().setDetectedBy(defect.getDetectedBy());
             temp.get().setAssignedTo(defect.getAssignedTo());
             temp.get().setStatus(defect.getStatus());
-            temp.get().setUpdatedAt(Date.from(Instant.now()));
+            temp.get().setUpdatedOn(Date.from(Instant.now()));
             return defectRepository.save(temp.get());
         } else
             return null;

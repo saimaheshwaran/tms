@@ -7,6 +7,33 @@
     <div class="col-2">
         <div th:replace="~{generic/navigation :: tag}"></div>
     </div>
+    <div class="col-4">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Subject</th>
+                <th>Message</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="defect : ${alldefects}">
+                <td th:text="${defect.bg_summary}"></td>
+                <td th:text="${defect.bg_priority}"></td>
+                <td th:text="${defect.bg_severity}"></td>
+                <td th:text="${defect.bg_status}"></td>
+                <td th:text="${defect.bg_detectedBy}"></td>
+                <td th:text="${#strings.substring(defect.bg_updatedOn,0,10) + #strings.substring(defect.bg_updatedOn,12,19)}"></td>
+<!--                <td th:text="${#dates.format(defect.bg_updatedOn, 'dd-MMM-yyyy')}"></td>-->
+<!--                <td th:text="${defect.bg_updatedOn}"></td>-->
+            </tr>
+            </tbody>
+        </table>
+        <a href="/static/db/data.mv.db" download="data.mv.db">Download Database</a>
+    </div>
 </div>
 
 <div th:replace="~{generic/script :: tag}"></div>
