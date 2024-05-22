@@ -3,7 +3,6 @@ package com.tools.tms.entities;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.annotation.CreatedDate;
 
 import java.util.Date;
 import java.util.Objects;
@@ -20,7 +19,7 @@ public class Defect {
     @JsonProperty("bg_id")
     @Column(name = "bug_id")
     @Setter(AccessLevel.NONE)
-    private Integer id;
+    private Long id;
 
     @JsonProperty("bg_summary")
     @Column(name = "bug_summary", nullable = false)
@@ -52,10 +51,12 @@ public class Defect {
 
     @JsonProperty("bg_createdOn")
     @Column(name = "bug_createdOn")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date createdOn;
 
     @JsonProperty("bg_updatedOn")
     @Column(name = "bug_updatedOn")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date updatedOn;
 
     @Override

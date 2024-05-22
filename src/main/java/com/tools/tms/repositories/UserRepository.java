@@ -1,10 +1,12 @@
 package com.tools.tms.repositories;
 
-import com.tools.tms.entities.Defect;
+import com.tools.tms.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface DefectRepository extends JpaRepository<Defect, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
+
+    User findByUsername(String username);
 
 }
